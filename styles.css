@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #985277;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    color: #ff8c61;
+}
+
+#container {
+    margin: 0px;
+    padding: 20px;
+    display: grid;
+    height: 600px;
+    width: 400px;
+    background: #CE6A85;
+    border-radius: 10% 1% 10% 1% / 5% 1% 5% 1%;
+    box-shadow: 10px 10px 25px 7px #5c374c, 10px 10px 50px 10px #985277;
+    grid-template-areas: 
+        "display display display display display"
+        "seven eight nine backspace clear"
+        "four five six multiply divide"
+        "one two three plus minus"
+        "zero zero decimal equals equals";
+}
+
+.display {
+    grid-area: display;
+    place-self: center;
+    background: #ff8c61;
+}
+
+.backspace {
+    grid-area: backspace;
+    place-self: center;
+}
+
+.clear {
+    grid-area: clear;
+    place-self: center;
+}
+
+.equals {
+    grid-area: equals;
+    place-self: center;
+}
+
+.decimal {
+    grid-area: decimal;
+    place-self: center;
+}
+
+.multiply {
+    grid-area: multiply;
+    place-self: center;
+}
+
+.divide {
+    grid-area: divide;
+    place-self: center;
+}
+
+.plus {
+    grid-area: plus;
+    place-self: center;
+}
+
+.minus {
+    grid-area: minus;
+    place-self: center;
+}
+
+.nine {
+    grid-area: nine;
+    place-self: center;
+}
+
+.eight {
+    grid-area: eight;
+    place-self: center;
+}
+
+.seven {
+    grid-area: seven;
+    place-self: center;
+}
+
+.six {
+    grid-area: six;
+    place-self: center;
+}
+
+.five {
+    grid-area: five;
+    place-self: center;
+}
+
+.four {
+    grid-area: four;
+    place-self: center;
+}
+
+.three {
+    grid-area: three;
+    place-self: center;
+}
+
+.two {
+    grid-area: two;
+    place-self: center;
+}
+
+.one {
+    grid-area: one;
+    place-self: center;
+}
+
+.zero {
+    grid-area: zero;
+    place-self: center;
+}
