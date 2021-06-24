@@ -29,7 +29,7 @@ body {
     gap: 8px;
 }
 
-.display {
+#display {
     grid-area: display;
     place-self: right stretch;
     padding: 60px 25px 10px 0px;
@@ -60,77 +60,24 @@ body {
     background: #985277;
     border: 2px solid #faa275;
     transition: ease-in 0.05s;
+    cursor: pointer;
 }
 
-.backspace {
-    grid-area: backspace;
-
-}
-
-.clear {
-    grid-area: clear;
-}
-
-.equals {
-    grid-area: equals;
-}
-
-.decimal {
-    grid-area: decimal;
-}
-
-.multiply {
-    grid-area: multiply;
-}
-
-.divide {
-    grid-area: divide;
-}
-
-.plus {
-    grid-area: plus;
-}
-
-.minus {
-    grid-area: minus;
-}
-
-.nine {
-    grid-area: nine;
-}
-
-.eight {
-    grid-area: eight;
-}
-
-.seven {
-    grid-area: seven;
-}
-
-.six {
-    grid-area: six;
-}
-
-.five {
-    grid-area: five;
-}
-
-.four {
-    grid-area: four;
-}
-
-.three {
-    grid-area: three;
-}
-
-.two {
-    grid-area: two;
-}
-
-.one {
-    grid-area: one;
-}
-
-.zero {
-    grid-area: zero;
-}
+#backspace {grid-area: backspace;}
+#clear {grid-area: clear;}
+#equals {grid-area: equals;}
+#decimal {grid-area: decimal;}
+#multiply {grid-area: multiply;}
+#divide {grid-area: divide;}
+#plus {grid-area: plus;}
+#minus {grid-area: minus;}
+#nine {grid-area: nine;}
+#eight {grid-area: eight;}
+#seven {grid-area: seven;}
+#six {grid-area: six;}
+#five {grid-area: five;}
+#four {grid-area: four;}
+#three {grid-area: three;}
+#two {grid-area: two;}
+#one {grid-area: one;}
+#zero {grid-area: zero;}
