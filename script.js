@@ -1,45 +1,52 @@
 let displayValue = document.getElementById('display').innerHTML;
+let runningTotal = [];
 
-function updateDisplay(x) {
+function updateCount(x) {
     document.getElementById('display').innerHTML += x;
+    runningTotal.push(x);
+}
+
+function clearAll() {
+    document.getElementById('display').innerHTML = '';
+    runningTotal = [];
 }
 
 const oneButton = document.querySelector('#one');
-oneButton.addEventListener('click', () => updateDisplay(1));
+oneButton.addEventListener('click', () => updateCount(1));
 const twoButton = document.querySelector('#two');
-twoButton.addEventListener('click', () => updateDisplay(2));
+twoButton.addEventListener('click', () => updateCount(2));
 const threeButton = document.querySelector('#three');
-threeButton.addEventListener('click', () => updateDisplay(3));
+threeButton.addEventListener('click', () => updateCount(3));
 const fourButton = document.querySelector('#four');
-fourButton.addEventListener('click', () => updateDisplay(4));
+fourButton.addEventListener('click', () => updateCount(4));
 const fiveButton = document.querySelector('#five');
-fiveButton.addEventListener('click', () => updateDisplay(5));
+fiveButton.addEventListener('click', () => updateCount(5));
 const sixButton = document.querySelector('#six');
-sixButton.addEventListener('click', () => updateDisplay(6));
+sixButton.addEventListener('click', () => updateCount(6));
 const sevenButton = document.querySelector('#seven');
-sevenButton.addEventListener('click', () => updateDisplay(7));
+sevenButton.addEventListener('click', () => updateCount(7));
 const eightButton = document.querySelector('#eight');
-eightButton.addEventListener('click', () => updateDisplay(8));
+eightButton.addEventListener('click', () => updateCount(8));
 const nineButton = document.querySelector('#nine');
-nineButton.addEventListener('click', () => updateDisplay(9));
+nineButton.addEventListener('click', () => updateCount(9));
 const zeroButton = document.querySelector('#zero');
-zeroButton.addEventListener('click', () => updateDisplay(0));
+zeroButton.addEventListener('click', () => updateCount(0));
 
 const multiplyButton = document.querySelector('#multiply');
-multiplyButton.addEventListener('click', () => updateDisplay('*'));
+multiplyButton.addEventListener('click', () => updateCount('&#215;'));
 const divideButton = document.querySelector('#divide');
-divideButton.addEventListener('click', () => updateDisplay('/'));
+divideButton.addEventListener('click', () => updateCount('&#247;'));
 const plusButton = document.querySelector('#plus');
-plusButton.addEventListener('click', () => updateDisplay('+'));
+plusButton.addEventListener('click', () => updateCount('&#43;'));
 const minusButton = document.querySelector('#minus');
-minusButton.addEventListener('click', () => updateDisplay('-'));
+minusButton.addEventListener('click', () => updateCount('&#8722;'));
 const decimalButton = document.querySelector('#decimal');
-decimalButton.addEventListener('click', () => updateDisplay('.'));
+decimalButton.addEventListener('click', () => updateCount('.'));
 
 const backButton = document.querySelector('#backspace');
 backButton.addEventListener('click', () => console.log('Backspace'));
 const clearButton = document.querySelector('#clear');
-clearButton.addEventListener('click', () => document.getElementById('display').innerHTML = '');
+clearButton.addEventListener('click', () => clearAll());
 const equalsButton = document.querySelector('#equals');
 equalsButton.addEventListener('click', () => console.log('Equals'));
 
@@ -59,16 +66,16 @@ function divide(a, b) {
 
 function operate(a, b, operator) {
     switch(operator) {
-        case "+":
+        case "&#43;":
             return add(a, b);
             break;
-        case "-":
+        case "&#8722;":
             return subtract(a, b);
             break;
-        case "*":
+        case "&#215;":
             return multiply(a, b);
             break;
-        case "/":
+        case "&#247;":
             return divide(a, b);
             break;
     }
