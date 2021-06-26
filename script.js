@@ -3,12 +3,24 @@ let runningTotal = [];
 
 function updateCount(x) {
     document.getElementById('display').innerHTML += x;
-    runningTotal.push(x);
+    if (typeof x === 'number' && runningTotal.length < 2) {
+        runningTotal.push(x);
+        let tempNum = runningTotal.join('');
+        runningTotal = [tempNum];
+    }
+    else {
+        runningTotal.push(x);
+    }
 }
 
 function clearAll() {
     document.getElementById('display').innerHTML = '';
     runningTotal = [];
+}
+
+function backSpace() {
+    runningTotal.splice(-1);
+    document.getElementById('display').innerHTML = runningTotal.join('');
 }
 
 const oneButton = document.querySelector('#one');
@@ -44,7 +56,7 @@ const decimalButton = document.querySelector('#decimal');
 decimalButton.addEventListener('click', () => updateCount('.'));
 
 const backButton = document.querySelector('#backspace');
-backButton.addEventListener('click', () => console.log('Backspace'));
+backButton.addEventListener('click', () => backSpace());
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', () => clearAll());
 const equalsButton = document.querySelector('#equals');
@@ -64,7 +76,7 @@ function divide(a, b) {
     return (a / b);
 }
 
-function operate(a, b, operator) {
+function operate(a, operator, b) {
     switch(operator) {
         case "&#43;":
             return add(a, b);
