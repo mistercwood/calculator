@@ -39,7 +39,7 @@ function updateOperator(x) {
         document.getElementById('display').innerHTML += x;
     }
     else {
-        console.log('something not right?');
+        return;
     }
 }
 
@@ -72,6 +72,40 @@ function clearAll() {
 //     runningTotal.splice(-1);
 //     document.getElementById('display').innerHTML = runningTotal.join('');
 // }
+
+function add(a, b) {
+    return (a + b);
+}
+function subtract(a, b) {
+	return (a - b);
+}
+function multiply(a, b) {
+    return (a * b);
+}
+function divide(a, b) {
+    return (a / b);
+}
+
+function rounded(value) {
+    return Number(Math.round(value+'e'+5)+'e-'+5);
+}
+
+function calculate(a, operator, b) {
+    switch(operator) {
+        case "&#43;":
+            return rounded(add(a, b));
+            break;
+        case "&#8722;":
+            return rounded(subtract(a, b));
+            break;
+        case "&#215;":
+            return rounded(multiply(a, b));
+            break;
+        case "&#247;":
+            return (b == 0) ? 80085 : rounded(divide(a, b));
+            break;
+    }
+}
 
 const oneButton = document.querySelector('#one');
 oneButton.addEventListener('click', () => updateNumber(1));
@@ -111,34 +145,3 @@ const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', () => clearAll());
 const equalsButton = document.querySelector('#equals');
 equalsButton.addEventListener('click', () => equals());
-
-
-function add(a, b) {
-    return (a + b);
-}
-function subtract(a, b) {
-	return (a - b);
-}
-function multiply(a, b) {
-    return (a * b);
-}
-function divide(a, b) {
-    return (b == 0) ? 'Everybody Dies&#0153;' : (a / b);
-}
-
-function calculate(a, operator, b) {
-    switch(operator) {
-        case "&#43;":
-            return add(a, b);
-            break;
-        case "&#8722;":
-            return subtract(a, b);
-            break;
-        case "&#215;":
-            return multiply(a, b);
-            break;
-        case "&#247;":
-            return divide(a, b);
-            break;
-    }
-}
