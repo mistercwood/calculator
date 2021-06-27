@@ -19,13 +19,15 @@ function updateNumber(x) {
 
 function updateOperator(x) {
     if (num1 && num2 && currentOperator) {
-        num1 = runningTotal1.join('');
-        num2 = runningTotal2.join('');
+        num1 = parseFloat(runningTotal1.join(''));
+        num2 = parseFloat(runningTotal2.join(''));
         result = calculate(num1, currentOperator, num2);
         document.getElementById('display').innerHTML = result;
         document.getElementById('display').innerHTML += x;
         num1 = result;
         num2 = '';
+        runningTotal1 = [num1];
+        runningTotal2 = [];
         currentOperator = x;
     }
     else if (num1 && currentOperator) {
@@ -121,7 +123,7 @@ function multiply(a, b) {
     return (a * b);
 }
 function divide(a, b) {
-    return (a / b);
+    return (b == 0) ? 'Everybody Dies&#0153;' : (a / b);
 }
 
 function calculate(a, operator, b) {
