@@ -1,4 +1,3 @@
-let displayValue = document.getElementById('display').innerHTML;
 let runningTotal1 = [];
 let runningTotal2 = [];
 let num1;
@@ -53,9 +52,19 @@ function equals() {
         num2 = '';
         runningTotal1 = [num1];
         runningTotal2 = [];
+        currentOperator = '';
     }
     else {
         return;
+    }
+}
+
+function decimalCheck() {
+    if (currentOperator) {
+        return  num2.includes('.') ? '' : updateNumber('.');
+    }
+    else {
+        return num1.includes('.') ? '' : updateNumber('.');
     }
 }
 
@@ -137,7 +146,7 @@ plusButton.addEventListener('click', () => updateOperator('&#43;'));
 const minusButton = document.querySelector('#minus');
 minusButton.addEventListener('click', () => updateOperator('&#8722;'));
 const decimalButton = document.querySelector('#decimal');
-decimalButton.addEventListener('click', () => updateCount('.'));
+decimalButton.addEventListener('click', () => decimalCheck());
 
 const backButton = document.querySelector('#backspace');
 backButton.addEventListener('click', () => backSpace());
