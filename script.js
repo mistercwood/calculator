@@ -66,7 +66,6 @@ function decimalCheck() {
     }
 }
 
-
 function backSpace() {
     if (num1 && currentOperator) {
         runningTotal2.splice(-1);
@@ -81,7 +80,6 @@ function backSpace() {
     
 }
 
-
 function clearAll() {
     document.getElementById('display').innerHTML = '';
     runningTotal1 = [];
@@ -90,7 +88,6 @@ function clearAll() {
     num2 = '';
     currentOperator = '';
 }
-
 
 function add(a, b) {
     return (a + b);
@@ -111,16 +108,16 @@ function rounded(value) {
 
 function calculate(a, operator, b) {
     switch(operator) {
-        case "&#43;":
+        case "+":
             return rounded(add(a, b));
             break;
-        case "&#8722;":
+        case "-":
             return rounded(subtract(a, b));
             break;
-        case "&#215;":
+        case "*":
             return rounded(multiply(a, b));
             break;
-        case "&#247;":
+        case "/":
             return (b == 0) ? 8008135 : rounded(divide(a, b));
             break;
     }
@@ -148,13 +145,13 @@ const zeroButton = document.querySelector('#zero');
 zeroButton.addEventListener('click', () => updateNumber(0));
 
 const multiplyButton = document.querySelector('#multiply');
-multiplyButton.addEventListener('click', () => updateOperator('&#215;'));
+multiplyButton.addEventListener('click', () => updateOperator('*'));
 const divideButton = document.querySelector('#divide');
-divideButton.addEventListener('click', () => updateOperator('&#247;'));
+divideButton.addEventListener('click', () => updateOperator('/'));
 const plusButton = document.querySelector('#plus');
-plusButton.addEventListener('click', () => updateOperator('&#43;'));
+plusButton.addEventListener('click', () => updateOperator('+'));
 const minusButton = document.querySelector('#minus');
-minusButton.addEventListener('click', () => updateOperator('&#8722;'));
+minusButton.addEventListener('click', () => updateOperator('-'));
 const decimalButton = document.querySelector('#decimal');
 decimalButton.addEventListener('click', () => decimalCheck());
 
@@ -164,3 +161,47 @@ const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', () => clearAll());
 const equalsButton = document.querySelector('#equals');
 equalsButton.addEventListener('click', () => equals());
+
+window.addEventListener("keydown", function(event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+    if (event.code === "Numpad1"){
+        updateNumber(1);
+    } else if (event.code === "Numpad2"){
+        updateNumber(2);
+    } else if (event.code === "Numpad3"){
+        updateNumber(3);
+    } else if (event.code === "Numpad4"){
+        updateNumber(4);
+    } else if (event.code === "Numpad5"){
+        updateNumber(5);
+    } else if (event.code === "Numpad6"){
+        updateNumber(6);
+    } else if (event.code === "Numpad7"){
+        updateNumber(7);
+    } else if (event.code === "Numpad8"){
+        updateNumber(8);
+    } else if (event.code === "Numpad9"){
+        updateNumber(9);
+    } else if (event.code === "Numpad0"){
+        updateNumber(0);
+    } else if (event.code === "NumpadDivide"){
+        updateOperator('/');
+    } else if (event.code === "NumpadMultiply"){
+        updateOperator('*');
+    } else if (event.code === "NumpadAdd"){
+        updateOperator('+');
+    } else if (event.code === "NumpadSubtract"){
+        updateOperator('-');
+    } else if (event.code === "NumpadEnter"){
+        equals();
+    } else if (event.code === "Backspace"){
+        backSpace();
+    } else if (event.code === "Delete"){
+        clearAll();
+    } else if (event.code === "NumpadDecimal"){
+        decimalCheck();
+    }
+    event.preventDefault();
+  }, true);
