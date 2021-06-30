@@ -21,7 +21,7 @@ function updateNumber(x) {
 }
 
 function updateOperator(x) {
-    if (num1 && num2 && currentOperator) {
+    if (num2 && currentOperator) {
         num1 = parseFloat(runningTotal1.join(''));
         num2 = parseFloat(runningTotal2.join(''));
         result = calculate(num1, currentOperator, num2);
@@ -30,9 +30,6 @@ function updateOperator(x) {
         num2 = '';
         runningTotal1 = [num1];
         runningTotal2 = [];
-        currentOperator = x;
-    }
-    else if (num1 && currentOperator) {
         currentOperator = x;
     }
     else if (num1) {
@@ -74,12 +71,14 @@ function backSpace() {
     if (num1 && currentOperator) {
         runningTotal2.splice(-1);
         num2 = runningTotal2.join('');
+        document.getElementById('display').innerHTML = num2;
     }
     else {
         runningTotal1.splice(-1);
         num1 = runningTotal1.join('');
+        document.getElementById('display').innerHTML = num1;
     }
-    document.getElementById('display').innerHTML = num1 + currentOperator + num2;
+    
 }
 
 
