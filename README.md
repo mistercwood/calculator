@@ -1,7 +1,7 @@
 calculator
 =========
 
-> ## A simple calculator made with HTML, CSS &amp; Javascript, as part of [The Odin Project](https://www.theodinproject.com/) curriculum.
+> ## A simple calculator made with HTML, CSS &amp; Javascript, as part of [The Odin Project](https://www.theodinproject.com/) curriculum. A live version of the project can be found [here](https://mistercwood.github.io/calculator/).
 
 ****
 
