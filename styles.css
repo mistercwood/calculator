@@ -64,6 +64,10 @@ body {
     cursor: pointer;
 }
 
+.buttons:active {
+    background: #faa275;
+}
+
 #backspace {grid-area: backspace;}
 #clear {grid-area: clear;}
 #equals {grid-area: equals;}

@@ -5,14 +5,18 @@ let num2;
 let currentOperator;
 
 function updateNumber(x) {
-    document.getElementById('display').innerHTML += x;
+    if (currentOperator) {
+        document.getElementById('display').innerHTML = '';
+    }    
     if (num1 && currentOperator) {
         runningTotal2.push(x);
         num2 = runningTotal2.join('');
+        document.getElementById('display').innerHTML = num2;
     }
     else {
         runningTotal1.push(x)
         num1 = runningTotal1.join('');
+        document.getElementById('display').innerHTML = num1;
     }
 }
 
@@ -22,7 +26,6 @@ function updateOperator(x) {
         num2 = parseFloat(runningTotal2.join(''));
         result = calculate(num1, currentOperator, num2);
         document.getElementById('display').innerHTML = result;
-        document.getElementById('display').innerHTML += x;
         num1 = result;
         num2 = '';
         runningTotal1 = [num1];
@@ -31,11 +34,9 @@ function updateOperator(x) {
     }
     else if (num1 && currentOperator) {
         currentOperator = x;
-        document.getElementById('display').innerHTML += x;
     }
     else if (num1) {
         currentOperator = x;
-        document.getElementById('display').innerHTML += x;
     }
     else {
         return;
@@ -68,6 +69,20 @@ function decimalCheck() {
     }
 }
 
+
+function backSpace() {
+    if (num1 && currentOperator) {
+        runningTotal2.splice(-1);
+        num2 = runningTotal2.join('');
+    }
+    else {
+        runningTotal1.splice(-1);
+        num1 = runningTotal1.join('');
+    }
+    document.getElementById('display').innerHTML = num1 + currentOperator + num2;
+}
+
+
 function clearAll() {
     document.getElementById('display').innerHTML = '';
     runningTotal1 = [];
@@ -77,10 +92,6 @@ function clearAll() {
     currentOperator = '';
 }
 
-// function backSpace() {
-//     runningTotal.splice(-1);
-//     document.getElementById('display').innerHTML = runningTotal.join('');
-// }
 
 function add(a, b) {
     return (a + b);
@@ -111,7 +122,7 @@ function calculate(a, operator, b) {
             return rounded(multiply(a, b));
             break;
         case "&#247;":
-            return (b == 0) ? 80085 : rounded(divide(a, b));
+            return (b == 0) ? 8008135 : rounded(divide(a, b));
             break;
     }
 }
