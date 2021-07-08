@@ -6,22 +6,22 @@ let currentOperator;
 
 function updateNumber(x) {
     if (currentOperator) {
-        document.getElementById('display').innerHTML = '';
+        document.getElementById('display').innerText = '';
     }    
     if (num1 && currentOperator) {
         runningTotal2.push(x);
         num2 = runningTotal2.join('');
-        document.getElementById('display').innerHTML = num2;
+        document.getElementById('display').innerText = num2;
     }
     else {
         runningTotal1.push(x)
         num1 = runningTotal1.join('');
-        document.getElementById('display').innerHTML = num1;
+        document.getElementById('display').innerText = num1;
     }
 }
 
 function updateOperator(x) {
-    if (num2 && currentOperator) {
+    if (num2) {
         numberCrunch();
         currentOperator = x;
     }
@@ -34,7 +34,7 @@ function updateOperator(x) {
 }
 
 function equals() {
-    if (num1 && num2 && currentOperator) {
+    if (num2) {
         numberCrunch();
         currentOperator = '';
     }
@@ -47,7 +47,7 @@ function numberCrunch() {
     num1 = parseFloat(runningTotal1.join(''));
     num2 = parseFloat(runningTotal2.join(''));
     result = calculate(num1, currentOperator, num2);
-    document.getElementById('display').innerHTML = result;
+    document.getElementById('display').innerText = result;
     num1 = result;
     num2 = '';
     runningTotal1 = [num1];
@@ -56,7 +56,7 @@ function numberCrunch() {
 
 function decimalCheck() {
     if (currentOperator) {
-        return  num2.includes('.') ? '' : updateNumber('.');
+        return num2.includes('.') ? '' : updateNumber('.');
     }
     else {
         return num1.includes('.') ? '' : updateNumber('.');
@@ -67,17 +67,17 @@ function backSpace() {
     if (num1 && currentOperator) {
         runningTotal2.splice(-1);
         num2 = runningTotal2.join('');
-        document.getElementById('display').innerHTML = num2;
+        document.getElementById('display').innerText = num2;
     }
     else {
         runningTotal1.splice(-1);
         num1 = runningTotal1.join('');
-        document.getElementById('display').innerHTML = num1;
+        document.getElementById('display').innerText = num1;
     }
 }
 
 function clearAll() {
-    document.getElementById('display').innerHTML = '';
+    document.getElementById('display').innerText = '';
     runningTotal1 = [];
     runningTotal2 = [];
     num1 = '';
@@ -106,16 +106,12 @@ function calculate(a, operator, b) {
     switch(operator) {
         case "+":
             return rounded(add(a, b));
-            break;
         case "-":
             return rounded(subtract(a, b));
-            break;
         case "*":
             return rounded(multiply(a, b));
-            break;
         case "/":
             return (b == 0) ? 8008135 : rounded(divide(a, b));
-            break;
     }
 }
 
